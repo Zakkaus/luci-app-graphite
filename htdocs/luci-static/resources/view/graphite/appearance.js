@@ -69,17 +69,57 @@ return view.extend({
 		s.anonymous = true;
 
 		const pal = s.option(form.ListValue, 'palette', _('Palette'),
-			_('Which set of surface colours the interface uses. Graphite is achromatic: grey carries hierarchy and hue is reserved for status. The others are ports of published palettes, named for the flavour they use in dark mode; each pairs with that project’s own light flavour — Latte for Catppuccin, Day for Tokyo Night.'));
+			_('Which surface colours the interface uses. Ports are named for their dark flavour; the light side is Latte for Catppuccin and Day for Tokyo Night.'));
 		/* Upstream's own flavour and style names. Renaming them into something
 		 * tidier would make it impossible to check a rendering against the
 		 * project that published the colours. */
-		pal.value('', _('Graphite (grey)'));
+		pal.value('', _('Graphite'));
 		pal.value('catppuccin-frappe', 'Catppuccin Frappé (Latte / Frappé)');
 		pal.value('catppuccin-macchiato', 'Catppuccin Macchiato (Latte / Macchiato)');
 		pal.value('catppuccin-mocha', 'Catppuccin Mocha (Latte / Mocha)');
 		pal.value('tokyonight-storm', 'Tokyo Night Storm (Day / Storm)');
 		pal.value('tokyonight-night', 'Tokyo Night (Day / Night)');
 		pal.default = '';
+
+		/* The accent paints the primary button, the focus ring and the active
+		 * badge — nothing else. Black is the default and is not a placeholder:
+		 * an achromatic primary is what the design language argues for, and
+		 * these four elements are where a hue can carry "this is the main
+		 * action" without becoming decoration.
+		 *
+		 * A fixed list rather than the free hue picker that used to be here
+		 * (see the note at the top of this file). The objection to that one
+		 * was not legibility but that an arbitrary hue looks wrong in a grey
+		 * system; a short list of values chosen against the greys is the part
+		 * of the idea that survives. The palettes below ship their own
+		 * colours, and an accent set here overrides them. */
+		const accent = s.option(form.ListValue, 'accent', _('Accent colour'),
+			_('The colour of the primary button, the focus ring, the active badge and the sidebar mark. Every palette answers the same eight names in its own values, so the accent belongs to the set around it.'));
+		accent.value('', _('None (default)'));
+		accent.value('pink', _('Pink'));
+		accent.value('mauve', _('Mauve'));
+		accent.value('red', _('Red'));
+		accent.value('peach', _('Peach'));
+		accent.value('yellow', _('Yellow'));
+		accent.value('green', _('Green'));
+		accent.value('teal', _('Teal'));
+		accent.value('blue', _('Blue'));
+		accent.default = '';
+
+		/* A hand-written colour, and it wins over the list above. The readable
+		 * foreground is derived from its lightness in CSS rather than asked
+		 * for here, so there is one field and not two. */
+		const accentCustom = s.option(form.Value, 'accent_custom', _('Custom accent colour'),
+			_('A colour code such as #2f6feb. It wins over the choice above, under any palette. Leave empty to use that choice. Only six hex digits are accepted.'));
+		accentCustom.placeholder = '#000000';
+		accentCustom.validate = function (section_id, value) {
+			if (value === '' || value == null)
+				return true;
+
+			return /^#?[0-9a-fA-F]{6}$/.test(value)
+				? true
+				: _('Six hex digits, for example #2f6feb.');
+		};
 
 		/* What the sidebar and the login page put beside the mark. The theme's
 		 * own name is the default because a hostname makes a weak wordmark:

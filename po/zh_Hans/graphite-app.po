@@ -26,21 +26,10 @@ msgstr ""
 msgid "Palette"
 msgstr "配色"
 
-#: htdocs/luci-static/resources/view/graphite/appearance.js:72
-msgid ""
-"Which set of surface colours the interface uses. Graphite is achromatic: "
-"grey carries hierarchy and hue is reserved for status. The others are ports "
-"of published palettes, named for the flavour they use in dark mode; each "
-"pairs with that project’s own light flavour — Latte for Catppuccin, Day for "
-"Tokyo Night."
-msgstr ""
-"界面使用哪一套表面配色。Graphite 是无彩的：灰阶承载层级，色相留给状态。其余几"
-"套是已发布配色的移植，按它们在深色下所用的风味命名，并各自与该项目自己的浅色"
-"风味成对 —— Catppuccin 用 Latte，Tokyo Night 用 Day。"
 
 #: htdocs/luci-static/resources/view/graphite/appearance.js:76
-msgid "Graphite (grey)"
-msgstr "Graphite（灰阶）"
+msgid "Graphite"
+msgstr "Graphite"
 
 #: htdocs/luci-static/resources/view/graphite/appearance.js:90
 msgid "Brand name"
@@ -100,3 +89,87 @@ msgstr ""
 #: htdocs/luci-static/resources/view/graphite/appearance.js:175
 msgid "Appearance saved. Reloading to apply it…"
 msgstr "外观设置已保存，正在重新载入以应用…"
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:88
+msgid "Accent colour"
+msgstr "强调色"
+
+
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:91
+msgid "Blue"
+msgstr "蓝色"
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:92
+msgid "Green"
+msgstr "绿色"
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:93
+msgid "Purple"
+msgstr "紫色"
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:91
+msgid "Teal"
+msgstr "青色"
+
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:94
+msgid "Red"
+msgstr "红色"
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:101
+msgid "Custom accent colour"
+msgstr "自定义强调色"
+
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:110
+msgid "Six hex digits, for example #2f6feb."
+msgstr "请填六位十六进制色号，例如 #2f6feb。"
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:95
+msgid "Pink"
+msgstr "粉色"
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:88
+msgid "None (default)"
+msgstr "无（默认）"
+
+
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:88
+msgid "Mauve"
+msgstr "木槿紫"
+
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:88
+msgid "Peach"
+msgstr "桃橙"
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:88
+msgid "Yellow"
+msgstr "黄色"
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:86
+msgid ""
+"The colour of the primary button, the focus ring, the active badge and the "
+"sidebar mark. Every palette answers the same eight names in its own values, "
+"so the accent belongs to the set around it."
+msgstr ""
+"主按钮、焦点环、活动徽标与侧栏标记的颜色。八个名字在每套配色下都由那套自己的"
+"取值来回答，因此强调色始终属于它周围那一套。"
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:98
+msgid ""
+"A colour code such as #2f6feb. It wins over the choice above, under any "
+"palette. Leave empty to use that choice. Only six hex digits are accepted."
+msgstr ""
+"十六进制色号，例如 #2f6feb。在任何配色下都优先于上面的选择。留空则使用上面的"
+"选择。只接受六位十六进制。"
+
+#: htdocs/luci-static/resources/view/graphite/appearance.js:71
+msgid ""
+"Which surface colours the interface uses. Ports are named for their dark "
+"flavour; the light side is Latte for Catppuccin and Day for Tokyo Night."
+msgstr ""
+"界面用哪一套表面色。移植的几套按深色风味命名，浅色一侧 Catppuccin 用 Latte，"
+"Tokyo Night 用 Day。"
